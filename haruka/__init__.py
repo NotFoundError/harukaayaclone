@@ -19,14 +19,14 @@ LOGGER = logging.getLogger(__name__)
 ENV = bool(os.environ.get('ENV', False))
 
 if ENV:
-    TOKEN = os.environ.get('TOKEN', None)
+    TOKEN = os.environ.get('TOKEN', "")
     try:
-        OWNER_ID = int(os.environ.get('OWNER_ID', None))
+        OWNER_ID = int(os.environ.get('OWNER_ID', ""))
     except ValueError:
         raise Exception("Your OWNER_ID env variable is not a valid integer.")
 
     MESSAGE_DUMP = os.environ.get('MESSAGE_DUMP', None)
-    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
+    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "")
 
     try:
         SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
@@ -57,7 +57,7 @@ if ENV:
     WORKERS = int(os.environ.get('WORKERS', 8))
     BAN_STICKER = os.environ.get('BAN_STICKER', 'CAADAgADOwADPPEcAXkko5EB3YGYAg')
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
-    STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
+    STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', ""))
     API_WEATHER = os.environ.get('API_OPENWEATHER', None)
     DEEPFRY_TOKEN = os.environ.get('DEEPFRY_TOKEN ', None)
 
