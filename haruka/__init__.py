@@ -65,7 +65,7 @@ else:
     from haruka.config import Development as Config
     TOKEN = Config.API_KEY
     try:
-    OWNER_ID = int(Config.OWNER_ID)
+    OWNER_ID = int(os.environ.get('OWNER_ID', ""))
 except ValueError:
     raise Exception("Your OWNER_ID variable is not a valid integer.")
 
